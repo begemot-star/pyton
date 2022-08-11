@@ -1,1 +1,28 @@
-
+start_car1 = [0,0]
+start_car2 = [10,10]
+speed_car1 = [1,1]
+speed_car2 = [0,0]
+car1 =[0,0]
+car2 =[0,0]
+max_range_x = abs(start_car1[0]-start_car2[0])#данные нужды для проверки на сближение автомобилей.
+max_range_y = abs(start_car1[1]-start_car2[1])
+current_position_car_1 = [0,0]
+current_position_car_2 = [0,0]
+def next_position(car1,car2):
+    current_position_car_1[0] = car1[0] + speed_car1[0]
+    current_position_car_1[1] = car1[1] + speed_car1[1]
+    current_position_car_2[0] = car2[0] + speed_car2[0]
+    current_position_car_2[1] = car2[1] + speed_car2[1]
+    
+    return(current_position_car_1,current_position_car_2)
+current_position_car_1 = start_car1
+current_position_car_2 =start_car2
+next_position(car1 = current_position_car_1 ,car2 = current_position_car_2)
+for i in range(max(max_range_x,max_range_y)):
+    if current_position_car_1 != current_position_car_2:
+        if (abs(current_position_car_1[0]-current_position_car_2[0])) <= max_range_x  or (abs(current_position_car_1[1]-current_position_car_2[1]) <= max_range_y):
+            next_position(car1 = current_position_car_1 ,car2 = current_position_car_2)
+        else:
+            print("cars dont cross")
+    else:
+        print("cars in one place:", current_position_car_1)
