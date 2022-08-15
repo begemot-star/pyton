@@ -8,6 +8,10 @@ max_range_x = abs(start_car1[0]-start_car2[0])#данные нужды для п
 max_range_y = abs(start_car1[1]-start_car2[1])
 current_position_car_1 = [0,0]
 current_position_car_2 = [0,0]
+def calculate_distanse(position1,position2):
+    dist = sqrt((position2[0] - position1[0])**2+(position2[1]-position1[1])**2)
+def calculate_time(speed,distance):
+    time = distance/speed
 def next_position(car1,car2):
     current_position_car_1[0] = car1[0] + speed_car1[0]
     current_position_car_1[1] = car1[1] + speed_car1[1]
